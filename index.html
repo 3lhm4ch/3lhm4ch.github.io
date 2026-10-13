@@ -1,11 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rädda Ägget – Chalmers Tekniska Högskola</title>
+    <!-- Tailwind CSS CDN (Inga skript eller JS-funktioner krävs för layouten) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons för visuella ikoner -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        chalmers: {
+                            navy: '#002855',      // Chalmers mörkblå
+                            blue: '#0053A0',      // Chalmers sekundärblå
+                            red: '#D12920',       // Chalmers röd accent
+                            gold: '#D4AF37',      // Chalmers guld/gul
+                            lightbg: '#F8FAFC',
+                            card: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <p>Hej!</p>
+<body class="bg-chalmers-lightbg text-gray-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Chalmers Header Bar -->
+    <header class="bg-chalmers-navy text-white shadow-md border-b-4 border-chalmers-red">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-chalmers-red flex items-center justify-center text-white font-extrabold text-xl shadow-md">
+                    <i class="fa-solid fa-egg"></i>
+                </div>
+                <div>
+                    <span class="text-[10px] uppercase tracking-widest text-chalmers-gold font-bold block">Chalmers Tekniska Högskola</span>
+                    <h1 class="text-xl font-bold tracking-tight">Rädda Ägget <span class="text-xs font-normal opacity-75">| Testresultat</span></h1>
+                </div>
+            </div>
+            <div class="text-right hidden sm:block">
+                <span class="text-xs text-gray-300 block">Kemigården, Johanneberg</span>
+                <span class="text-xs font-semibold text-chalmers-gold">15 meters fallhöjd</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Intro Section -->
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200 mb-8">
+            <div class="inline-flex items-center space-x-2 bg-blue-50 text-chalmers-blue px-3 py-1 rounded-full text-xs font-semibold mb-4 border border-blue-100">
+                <i class="fa-solid fa-award"></i>
+                <span>Årlig tekniktävling på Chalmers</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-chalmers-navy mb-4">
+                Mätvärden från Äggsläppet
+            </h2>
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                Tävlingen <strong>Rädda Ägget</strong> arrangeras av Chalmers Tekniska Högskola och går ut på att släppa ett rått hönsägg från 15 meters höjd ner mot Kemigårdens hårda underlag. Målet är att konstruera en farkost som minskar nedslagshastigheten tillräckligt för att ägget ska klara fallet utan att spricka eller krossas.
+            </p>
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                Tabellen nedan visar uppmätt hastighet vid nedslag samt slutgiltig status för ägget för samtliga deltagande farkoster.
+            </p>
+        </section>
+
+        <!-- Results Table Section -->
+        <section class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="px-6 py-5 bg-chalmers-navy text-white flex items-center justify-between">
+                <div>
+                    <h3 class="font-bold text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-chalmers-gold"></i>
+                        Resultat & Mätvärden
+                    </h3>
+                    <p class="text-xs text-gray-300 mt-0.5">Sammanställning av nedslagshastighet och resultat för varje farkost</p>
+                </div>
+                <div class="text-xs bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 font-medium">
+                    Totalt 12 försök
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-gray-50 text-gray-700 font-bold uppercase text-xs tracking-wider border-b border-gray-200">
+                        <tr>
+                            <th class="py-4 px-6">Lag / Farkost</th>
+                            <th class="py-4 px-6">Hastighet (m/s)</th>
+                            <th class="py-4 px-6">Hastighet (km/h)</th>
+                            <th class="py-4 px-6">Äggstatus</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <!-- Rad 1 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                Böskolan
+                                <span class="block text-xs font-normal text-gray-500">Luftkudde Alpha</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">5,1 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">18,4 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                                    <i class="fa-solid fa-circle-check mr-1.5 text-emerald-600"></i> Klarade sig
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Rad 2 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                ISGR F-6
+                                <span class="block text-xs font-normal text-gray-500">Fallskärm Rotor-X</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">5,6 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">20,2 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                                    <i class="fa-solid fa-circle-check mr-1.5 text-emerald-600"></i> Klarade sig
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Rad 3 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                Montessoriskolan Alexandra
+                                <span class="block text-xs font-normal text-gray-500">Pappersorigami Pyramid</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">6,0 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">21,6 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                                    <i class="fa-solid fa-circle-check mr-1.5 text-emerald-600"></i> Klarade sig
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Rad 4 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                Montessoriskolan Casa
+                                <span class="block text-xs font-normal text-gray-500">Kapsel Zero-G</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">6,8 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">24,5 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                                    <i class="fa-solid fa-circle-check mr-1.5 text-emerald-600"></i> Klarade sig
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Rad 5 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                Frejaskolan
+                                <span class="block text-xs font-normal text-gray-500">Harmonisk Dämpare</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">8,5 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">30,6 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                                    <i class="fa-solid fa-circle-check mr-1.5 text-emerald-600"></i> Klarade sig
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Rad 6 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                Samhällsbyggnad
+                                <span class="block text-xs font-normal text-gray-500">Bikupa Kartong</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">10,5 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">37,8 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                                    <i class="fa-solid fa-circle-check mr-1.5 text-emerald-600"></i> Klarade sig
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Rad 7 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                Kemister utan Gränser
+                                <span class="block text-xs font-normal text-gray-500">Skumgummi Cirkus</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">11,2 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">40,3 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                                    <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-600"></i> Sprucket
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Rad 8 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                Sjöfart & Logistik
+                                <span class="block text-xs font-normal text-gray-500">Båt-Köl Dämpare</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">12,1 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">43,6 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                                    <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-600"></i> Sprucket
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Rad 9 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                Elektro-Äggen
+                                <span class="block text-xs font-normal text-gray-500">Magnetpaddel X</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">13,5 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">48,6 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                                    <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-600"></i> Sprucket
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Rad 10 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                Bärande Konstruktioner
+                                <span class="block text-xs font-normal text-gray-500">Fackverk Balsa</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">14,8 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">53,3 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800 border border-red-200">
+                                    <i class="fa-solid fa-circle-xmark mr-1.5 text-red-600"></i> Krossat
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Rad 11 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                Automation & Robotteknik
+                                <span class="block text-xs font-normal text-gray-500">Drivskärm Mk3</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">15,2 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">54,7 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800 border border-red-200">
+                                    <i class="fa-solid fa-circle-xmark mr-1.5 text-red-600"></i> Krossat
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Rad 12 -->
+                        <tr class="hover:bg-gray-50/80 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-chalmers-navy">
+                                Fritt Fall Kontroll
+                                <span class="block text-xs font-normal text-gray-500">Oskyddat Ägg (Referens)</span>
+                            </td>
+                            <td class="py-4 px-6 font-medium text-gray-800">17,1 m/s</td>
+                            <td class="py-4 px-6 text-gray-500">61,6 km/h</td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800 border border-red-200">
+                                    <i class="fa-solid fa-circle-xmark mr-1.5 text-red-600"></i> Krossat
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chalmers Footer -->
+    <footer class="bg-chalmers-navy text-white mt-12 py-8 border-t border-chalmers-blue/40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-300">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-md bg-chalmers-red flex items-center justify-center text-white font-bold">
+                    <i class="fa-solid fa-egg text-sm"></i>
+                </div>
+                <div>
+                    <p class="font-bold text-white">Rädda Ägget – Chalmers Tekniska Högskola</p>
+                    <p class="text-gray-400">Tekniktävling för problemlösning & upptäckarlust</p>
+                </div>
+            </div>
+            <p class="text-gray-400">&copy; Chalmers Tekniska Högskola</p>
+        </div>
+    </footer>
+
 </body>
 </html>
