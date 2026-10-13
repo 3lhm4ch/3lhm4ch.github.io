@@ -1,106 +1,11 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min Gratis Hemsida</title>
-    <!-- Tailwind CSS CDN för snabb och snygg styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between">
-
-    <!-- Navigationsfält -->
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
-                MinHemsida.se
-            </a>
-            <nav class="space-x-6 text-sm font-medium text-slate-300">
-                <a href="#om" class="hover:text-blue-400 transition">Om mig</a>
-                <a href="#projekt" class="hover:text-blue-400 transition">Projekt</a>
-                <a href="#kontakt" class="hover:text-blue-400 transition">Kontakt</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero-sektion -->
-    <main class="max-w-5xl mx-auto px-6 py-16 flex-grow flex flex-col justify-center">
-        <section class="text-center md:text-left md:flex items-center justify-between gap-12">
-            <div class="space-y-6 md:w-2/3">
-                <span class="px-3 py-1 text-xs font-semibold tracking-wide uppercase bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
-                    Hostad på GitHub Pages
-                </span>
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight">
-                    Välkommen till min personliga webbplats
-                </h1>
-                <p class="text-lg text-slate-400">
-                    Det här är en komplett, responsiv mall byggd med HTML och Tailwind CSS. Perfekt för att visa upp projekt, skapa en portfölj eller bara testa GitHub Pages!
-                </p>
-                <div class="pt-2 flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="#projekt" class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium transition shadow-lg shadow-blue-500/20">
-                        Se mina projekt
-                    </a>
-                    <a href="#kontakt" class="px-6 py-3 rounded-lg border border-slate-700 hover:bg-slate-800 text-slate-300 font-medium transition">
-                        Kontakta mig
-                    </a>
-                </div>
-            </div>
-
-            <!-- Avatar / Profilbild-placeholder -->
-            <div class="mt-10 md:mt-0 flex justify-center">
-                <div class="w-48 h-48 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 p-1 shadow-2xl">
-                    <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center">
-                        <svg class="w-24 h-24 text-slate-700" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projekt-sektion -->
-        <section id="projekt" class="mt-24">
-            <h2 class="text-2xl font-bold text-white mb-8 border-b border-slate-800 pb-3">Utvalda Projekt</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <!-- Kort 1 -->
-                <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-blue-500/50 transition">
-                    <div class="w-10 h-10 bg-blue-500/10 text-blue-400 rounded-lg flex items-center justify-center font-bold mb-4">01</div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Projekt Ett</h3>
-                    <p class="text-sm text-slate-400 mb-4">Kort beskrivning av vad projektet handlar om och vilka tekniker som användes.</p>
-                    <a href="#" class="text-sm text-blue-400 font-medium hover:underline">Läs mer &rarr;</a>
-                </div>
-
-                <!-- Kort 2 -->
-                <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-blue-500/50 transition">
-                    <div class="w-10 h-10 bg-indigo-500/10 text-indigo-400 rounded-lg flex items-center justify-center font-bold mb-4">02</div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Projekt Två</h3>
-                    <p class="text-sm text-slate-400 mb-4">Ett annat spännande projekt där automatisering eller webbutveckling stod i fokus.</p>
-                    <a href="#" class="text-sm text-blue-400 font-medium hover:underline">Läs mer &rarr;</a>
-                </div>
-
-                <!-- Kort 3 -->
-                <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-blue-500/50 transition">
-                    <div class="w-10 h-10 bg-purple-500/10 text-purple-400 rounded-lg flex items-center justify-center font-bold mb-4">03</div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Automatiserad Fil</h3>
-                    <p class="text-sm text-slate-400 mb-4">Genererad dynamiskt via GitHub Actions eller ett REST API-skript.</p>
-                    <a href="#" class="text-sm text-blue-400 font-medium hover:underline">Läs mer &rarr;</a>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Sidfot -->
-    <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-sm text-slate-500">
-        <div class="max-w-5xl mx-auto px-6">
-            <p>&copy; <span id="year"></span> Mitt Namn. Publicerad gratis med GitHub Pages.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Sätt aktuellt år automatiskt i footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+<body>
+    <p>Hej!</p>
 </body>
 </html>
